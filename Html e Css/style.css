@@ -1,0 +1,83 @@
+@import url(./fontes/Lovelo_Black.otf);
+@import url(./fontes/GalanoGrotesqueAltBold.otf);
+
+*{
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    background-color: #0C1C7D;
+}
+
+.imgs {
+    width: 50%;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-around;
+    margin-top: 70px;
+    padding-left: 120px;
+}
+
+.loginparte{
+   margin-top: 70px;
+   margin-left: 100px;
+}
+
+.login{
+    width: 539px;
+    height: 421px;
+    background-color: #404046;
+    border-radius: 20px;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.login h1{
+    margin-top: 30px;
+    text-align: center;
+    font-family:'Lovelo';
+    font-size: 48px;
+    line-height: 48px;
+    color: #6AF6F7;
+    border-bottom: 5px solid #6AF6F7;
+}
+
+input{
+    width: 250px;
+    height: 32px;
+    background: none;
+    border: none;
+    border-bottom: 5px solid #F8FBFF;
+    outline: none;
+    color: white;
+}
+
+::placeholder{
+    font-family:'Galano Grotesque Alt';
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+button{
+    width: 539px;
+    height: 140px;
+    background: #616161;
+    margin-top: 30px;
+    border-color: none;
+    border-radius: 40px 0px 40px;
+    font-family:'Lovelo';
+    font-size: 48px;
+    line-height: 48px;
+    color: #6AF6F7;
+    text-shadow: 0px 0px 15px #6AF6F7;
+}
+
+button:hover{
+        background: linear-gradient(180deg, #357AAB 0%, rgba(255, 255, 255, 0) 100%), #1C415C;
+        text-decoration: none;
+        transition: 0.5s;
+}
