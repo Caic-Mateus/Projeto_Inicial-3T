@@ -1,7 +1,7 @@
 ---DDL---
 CREATE DATABASE TechnoGear;
 GO
-USE TechnoGear
+USE TechnoGear;
 --------------------------
 
 CREATE TABLE TipoEquipamento
