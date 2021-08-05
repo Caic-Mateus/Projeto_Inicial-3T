@@ -1,0 +1,251 @@
+@import url(./fontes/Lovelo_Black.otf);
+@import url(./fontes/GalanoGrotesqueAltBold.otf);
+
+body {
+    background-color: #616161;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.cabecalho{
+    width: 1350px;
+    height: 100px;
+    background-color: #404046;
+}
+
+.cabecalho ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    padding-top: 35px;
+}
+.cabecalho a{
+    font-family: 'Galano Grotesque Alt';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    color: #F8FBFF;
+}
+
+.texto{
+    margin-top: 30px;
+    width: 1300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    font-family:'Lovelo';
+    font-size: 36px;
+    line-height: 48px;
+    color: #6AF6F7;
+    border-bottom: 5px solid #6AF6F7; 
+}
+
+.caixona{
+    display: flex;
+    justify-content: center;
+}
+.caixa-1{
+    width: 1200px;
+   height: 465px;
+   margin-top: 30px;
+   background: #404046;
+   border: 2px solid #4ADEDF;
+   border-radius: 15px;
+   display: flex;
+   justify-content: space-around;
+}
+
+.caixa-1 h3{
+    height: 30px;
+    margin-top: 20px;
+    font-family: 'Galano Grotesque Alt';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    color: #6AF6F7;
+    border-bottom: 3px solid black;
+    padding-bottom: 20px;
+}
+
+.id{
+    max-width: 150px;
+}
+.caixa-1 hr{
+    margin-top: 30px;
+    height: 390px;
+    border: 2px solid #0F1114;
+}
+
+.texto-1{
+    margin-top: 30px;
+    width: 1300px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 70px;
+}
+
+.cadastro-sala{
+    max-width: 1350px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.texxto{
+    width: 784px;
+    height: 175px;
+    background: #F8FBFF;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.texxto ul{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+}
+
+.texxto a {
+    font-family: 'Galano Grotesque Alt';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    color: #0F1114;
+}
+
+.andar{
+    width: 123px;
+    border-bottom: 5px solid #0F1114;
+}
+
+.nome{
+    width: 143px;
+    border-bottom: 5px solid #0F1114;
+}
+
+.metragem{
+    width: 173px;
+    border-bottom: 5px solid #0F1114;
+}
+
+button{
+    width: 316px;
+    height: 133px;
+    background: #0C1C7D;
+    margin-top: 20px;
+    border-color: none;
+    border-radius: 40px 0px 40px;
+    font-family:'Lovelo';
+    font-size: 48px;
+    line-height: 48px;
+    color: #6AF6F7;
+    text-shadow: 0px 0px 15px #6AF6F7;
+    border: none;
+}
+.last-box{
+    max-width: 1350px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.texto-2{
+    margin-top: 30px;
+    width: 1280px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.texxto-2{
+    width: 784px;
+    height: 275px;
+    background: #F8FBFF;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.texxto-2 ul{
+    width: 780px;
+}
+
+.pt1{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    margin-right: 200px;
+}
+
+.pt2{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    margin-right: 200px;
+}
+
+.pt3{
+    margin-top: 30px;
+    display: flex;
+    margin-left: 65px;
+}
+
+.texxto-2 a {
+    font-family: 'Galano Grotesque Alt';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    color: #0F1114;
+}
+.tpe{
+    width: 163px;
+    border-bottom: 5px solid #0F1114;
+}
+
+.sit{
+    width: 163px;
+    border-bottom: 5px solid #0F1114;
+}
+
+.nde{
+    width: 163px;
+    border-bottom: 5px solid #0F1114;
+}
+
+.ndp{
+    width: 163px;
+    border-bottom: 5px solid #0F1114;
+}
+
+.desc{
+    width: 163px;
+    border-bottom: 5px solid #0F1114;
+}
+
+.foot{
+    margin-top: 30px;
+    width: 1350px;
+    height: 100px;
+    background: #404046;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foot p{
+    font-family: 'Galano Grotesque Alt';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    color: #0F1114;
+}
