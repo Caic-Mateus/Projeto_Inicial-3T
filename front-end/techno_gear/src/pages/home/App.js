@@ -25,6 +25,11 @@ export default class Home extends Component{
   //   console.log("teste")
   // }
 
+  // deslogar() {
+  //   localStorage.clear();
+  //   window.location.href = '/';
+  // }
+
   componentDidMount(){
     this.buscarEquipamentos()
   }
