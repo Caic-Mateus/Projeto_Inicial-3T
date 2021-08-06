@@ -67,7 +67,8 @@ namespace senai.technos.webApi.Repositories
         public List<Equipamento> List()
         {
             return ctx.Equipamentos.Include(x => x.IdTipoEquipamentoNavigation).
-                Include(x => x.IdUsuarioNavigation).ToList();
+                Include(x => x.IdUsuarioNavigation).
+                Include(x => x.IdSalaNavigation).ToList();
         }
 
         public Equipamento BuscarPorId(int id)

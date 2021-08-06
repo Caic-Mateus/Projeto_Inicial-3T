@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7f1f09e2-dc60-434a-a7f8-9fbba8570b12",
+		"_postman_id": "58162d13-36ac-4ab1-b595-4f84c411cc49",
 		"name": "Senai.Techno.WebApi",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -208,6 +208,40 @@
 								"api",
 								"equipamentos",
 								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"caic@email.com\",\r\n    \"senha\" : \"caic123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"login"
 							]
 						}
 					},
