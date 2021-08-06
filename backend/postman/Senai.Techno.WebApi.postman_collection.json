@@ -248,6 +248,31 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "TiposEquipamentos",
+			"item": [
+				{
+					"name": "TiposEquipamentos.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/tiposequipamentos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tiposequipamentos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
