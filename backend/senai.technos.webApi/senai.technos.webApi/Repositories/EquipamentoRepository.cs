@@ -1,4 +1,5 @@
-﻿using senai.technos.webApi.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using senai.technos.webApi.Contexts;
 using senai.technos.webApi.Domains;
 using senai.technos.webApi.Interfaces;
 using System;
@@ -65,7 +66,8 @@ namespace senai.technos.webApi.Repositories
 
         public List<Equipamento> List()
         {
-            return ctx.Equipamentos.ToList();
+            return ctx.Equipamentos.Include(x => x.IdTipoEquipamentoNavigation).
+                Include(x => x.IdUsuarioNavigation).ToList();
         }
 
         public Equipamento BuscarPorId(int id)
