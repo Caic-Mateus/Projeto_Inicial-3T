@@ -122,7 +122,7 @@ export default class Home extends Component{
 
     })
 
-    .then(console.log('A Sala foi cadastrada com Sucesso'))
+    .then(console.log('O Equipamento foi cadastrado com Sucesso'))
 
     .then(this.limparCampos)
   };
@@ -214,7 +214,7 @@ export default class Home extends Component{
           </table>
           <div>
             <h3>Cadastrar Sala</h3>
-            <form>
+            <form onSubmit={this.cadastrarSala}>
               <div>
       
                 <select
@@ -260,7 +260,7 @@ export default class Home extends Component{
           </div>
           <div>
             <h3>Cadastrar Equipamento</h3>
-            <form>
+            <form onSubmit={this.cadastrarEquipamento}>
               <div>
 
                 <select
