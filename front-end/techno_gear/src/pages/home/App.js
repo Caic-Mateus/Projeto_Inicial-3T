@@ -9,7 +9,7 @@ export default class Home extends Component{
         listaEquipamentos : [],
         listaSalas : [],
         listaTiposEquipamentos : [],
-        AndarSala : '0',
+        AndarSala : 0,
         TipoEquipamentoNovo : 0,
         NomeSalaNova : '',
         MetragemSalaNova : '',
@@ -18,6 +18,8 @@ export default class Home extends Component{
         NumeroPatrimonioNovo : '',
         DescricaoNova : '',
         idEquipamentoSelecionado : 0,
+        NovaSala : 0,
+        MarcaNova : '',
     }
   }
 
@@ -48,6 +50,82 @@ export default class Home extends Component{
 
     console.log("teste")
   }
+
+  limparCampos = () => {
+    this.setState({
+        AndarSala : 0,
+        NomeSalaNova : '',
+        MetragemSalaNova : '',
+    })
+  }
+
+  cadastrarSala = (event) => {
+
+    event.preventDefault();
+
+    let corpo = {
+        Andar : this.state.AndarSala,
+        Nome : this.state.NomeSalaNova,
+        Metragem : this.state.MetragemSalaNova,
+    };
+
+    axios.post('http://localhost:5000/api/salas', corpo)
+
+    .then(resposta => {
+
+        if (resposta.status === 201) {
+
+            console.log('Sala Cadastrada')
+
+        }
+    })
+
+    .catch(erro => {
+
+        console.log(erro);
+
+    })
+
+    .then(console.log('A Sala foi cadastrada com Sucesso'))
+
+    .then(this.limparCampos)
+  };
+
+  cadastrarEquipamento = (bolo) => {
+
+    bolo.preventDefault();
+
+    let corpo = {
+      idTipoEquipamento : this.state.TipoEquipamentoNovo,
+      idUsuario : 1,
+      idSala : this.state.NovaSala,
+      marca : this.state.MarcaNova,
+      numeroSerie : this.state.NumeroSerieNovo,
+      numeroPatrimonio : this.state.NumeroPatrimonioNovo,
+      situacao : this.state.SituacaoNova,
+      descricao : this.state.DescricaoNova,
+    };
+
+    axios.post('http://localhost:5000/api/equipamentos', corpo)
+
+    .then(resposta => {
+
+        if (resposta.status === 201) {
+
+            console.log('Sala Cadastrada')
+        }
+    })
+
+    .catch(erro => {
+
+        console.log(erro);
+
+    })
+
+    .then(console.log('A Sala foi cadastrada com Sucesso'))
+
+    .then(this.limparCampos)
+  };
 
   buscarSalas = () => {
 
@@ -205,6 +283,24 @@ export default class Home extends Component{
                 </select>
 
                 <select
+                  name='NovaSala'
+                  id='salinha'
+                  onChange={this.atualizaStateCampo}
+                  value={this.state.NovaSala} >
+
+                    <option value="0" disabled > Selecione a Sala </option>
+                    {
+                      this.state.listaSalas.map( elemento => {
+                          return(
+                              <option key={elemento.idSala} value={elemento.idSala}>
+                                  {elemento.nome}
+                              </option>
+                          );
+                      } )
+                    }
+                </select>
+
+                <select
                   name='SituacaoNova'
                   id='andar'
                   onChange={this.atualizaStateCampo}
@@ -223,6 +319,15 @@ export default class Home extends Component{
                   value={this.state.NumeroSerieNovo}
                   onChange={this.atualizaStateCampo}
                   placeholder="Número de Série"
+                />
+
+                <input 
+                  required
+                  type="text"
+                  name="MarcaNova"
+                  value={this.state.MarcaNova}
+                  onChange={this.atualizaStateCampo}
+                  placeholder="Marca"
                 />
 
                 <input 
