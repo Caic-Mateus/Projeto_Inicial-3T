@@ -13,9 +13,9 @@ export default class Home extends Component{
         TipoEquipamentoNovo : 0,
         NomeSalaNova : '',
         MetragemSalaNova : '',
-        SituacaoNova : 5,
-        NumeroSerieNovo : '',
-        NumeroPatrimonioNovo : '',
+        SituacaoNova : "0",
+        NumeroSerieNovo : 0,
+        NumeroPatrimonioNovo : 0,
         DescricaoNova : '',
         idEquipamentoSelecionado : 0,
         NovaSala : 0,
@@ -56,6 +56,13 @@ export default class Home extends Component{
         AndarSala : 0,
         NomeSalaNova : '',
         MetragemSalaNova : '',
+        TipoEquipamentoNovo : 0,
+        NovaSala : 0,
+        SituacaoNova : '0',
+        NumeroSerieNovo : 0,
+        NumeroPatrimonioNovo : 0,
+        MarcaNova : '',
+        DescricaoNova : '',
     })
   }
 
@@ -89,6 +96,7 @@ export default class Home extends Component{
     .then(console.log('A Sala foi cadastrada com Sucesso'))
 
     .then(this.limparCampos)
+    .then(this.buscarSalas)
   };
 
   cadastrarEquipamento = (bolo) => {
@@ -112,7 +120,7 @@ export default class Home extends Component{
 
         if (resposta.status === 201) {
 
-            console.log('Sala Cadastrada')
+            console.log('O Equipamento foi cadastrado')
         }
     })
 
@@ -125,6 +133,7 @@ export default class Home extends Component{
     .then(console.log('O Equipamento foi cadastrado com Sucesso'))
 
     .then(this.limparCampos)
+    .then(this.buscarEquipamentos)
   };
 
   buscarSalas = () => {
@@ -141,7 +150,7 @@ export default class Home extends Component{
     console.log("teste")
   }
 
-  excluirEquipamento = (equipamento) => {
+  excluirEquipamento = async (equipamento) => {
 
     this.setState({
 
@@ -149,7 +158,7 @@ export default class Home extends Component{
 
     })
 
-    axios.delete('http://localhost:5000/api/equipamentos/' + this.state.idEquipamentoSelecionado)
+    await axios.delete('http://localhost:5000/api/equipamentos/' + this.state.idEquipamentoSelecionado)
 
     .then(resposta => {
       if (resposta.status === 204) {
@@ -163,10 +172,10 @@ export default class Home extends Component{
 
   }
 
-  // deslogar() {
-  //   localStorage.clear();
-  //   window.location.href = '/';
-  // }
+  deslogar() {
+    localStorage.clear();
+    this.props.history.push('/')
+  }
 
   componentDidMount(){
     this.buscarEquipamentos()
@@ -187,7 +196,7 @@ export default class Home extends Component{
                 <tr>
                     <th>Tipo de Equipamento</th>
                     <th>Situação</th>
-                    {/* <th>Sala</th> */}
+                    <th>Sala</th>
                     <th>Número de Série</th>
                     <th>Número de Patrimônio</th>
                     <th>Descrição</th>
@@ -201,7 +210,7 @@ export default class Home extends Component{
                     <tr key={equipamentos.idEquipamento}>
                       <td>{equipamentos.idTipoEquipamentoNavigation.nomeEquipamento}</td>
                       <td>{equipamentos.situacao}</td>
-                      {/* <td>{equipamentos.}</td> */}
+                      <td>{equipamentos.idSalaNavigation.nome}</td>
                       <td>{equipamentos.numeroSerie}</td>
                       <td>{equipamentos.numeroPatrimonio}</td>
                       <td>{equipamentos.descricao}</td>
@@ -222,17 +231,10 @@ export default class Home extends Component{
                   id='andar'
                   onChange={this.atualizaStateCampo}
                   value={this.state.AndarSala} >
-
                     <option value="0" disabled > Selecione o Andar </option>
-                    {
-                      this.state.listaSalas.map( elemento => {
-                          return(
-                              <option key={elemento.idSala} value={elemento.idSala}>
-                                  {elemento.andar}
-                              </option>
-                          );
-                      } )
-                    }
+                    <option value="1"> 1 </option>
+                    <option value="2"> 2 </option>
+                    <option value="3"> 3 </option>
                 </select>
 
                 <input 
@@ -306,9 +308,9 @@ export default class Home extends Component{
                   onChange={this.atualizaStateCampo}
                   value={this.state.SituacaoNova} >
 
-                    <option value="5" disabled > Selecione a Situação </option>
-                    <option value='1' >Ativo</option>
-                    <option value='0' >Inativo</option>
+                    <option value="0" disabled > Selecione a Situação </option>
+                    <option value='true' >Ativo</option>
+                    <option value="false" >Inativo</option>
                     
                 </select>
 
@@ -353,6 +355,7 @@ export default class Home extends Component{
               </div>
             </form>
           </div>
+          <button onClick={() => this.deslogar}>Sair</button>
         </main>
     )
   }

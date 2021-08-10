@@ -11,33 +11,27 @@ export default class Login extends Component{
         }
     }
 
-    // efetuarLogin = (event) => {
+    efetuarLogin = (event) => {
 
-    //     event.preventDefault()
+        event.preventDefault()
 
-    //     axios.post('http://localhost:5000/api/', {
-    //         email : this.state.email,
-    //         senha : this.state.senha
-    //     })
+        axios.post('http://localhost:5000/api/login', {
+            email : this.state.email,
+            senha : this.state.senha
+        })
 
-    //     .then(resposta => {
-    //         if (resposta.status === 200) {
+        .then(resposta => {
+            if (resposta.status === 200) {
 
-    //             localStorage.setItem('usuario-login', resposta.data.token);
+                localStorage.setItem('usuario-login', resposta.data.token);
 
-    //             console.log('Meu token é: ' + resposta.data.token);
+                console.log('Meu token é: ' + resposta.data.token);
 
-    //             if (parseJwt().role === '1') {
-    //                 this.props.history.push('/listar');
-    //                 console.log('estou logado: ' + usuarioAutenticado());
-    //             }
-    //             else {
-    //                 this.props.history.push('/')
-    //             }
-    //         }
+                this.props.history.push('/home')
+            }
             
-    //     })
-    // }
+        })
+    }
 
     atualizaStateCampo = (campo) => {
         this.setState({ [campo.target.name] : campo.target.value })
